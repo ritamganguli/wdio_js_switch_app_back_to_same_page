@@ -6,14 +6,11 @@ describe("Proverbial APK", () => {
     await new Promise(resolve => setTimeout(resolve, 5000));
     await element.click();
     await new Promise(resolve => setTimeout(resolve, 15000));
-    await driver.pressKeyCode(3);
+    // await driver.pressKeyCode(3);
     await driver.startActivity("com.android.chrome", "com.google.android.apps.chrome.Main");
     await new Promise(resolve => setTimeout(resolve, 15000));
-    await driver.pressKeyCode(187);
-    const {width, height} = await driver.getWindowRect();
-    const centerX = width / 2;
-    const centerY = height / 2;
-    await driver.touchAction({action: 'tap', x: centerX, y: centerY});
+    await driver.activateApp("com.rbinternational.mobrix.mobrixshowcase");
+    await driver.setOrientation("portrait");
     await new Promise(resolve => setTimeout(resolve, 15000));
   });
 });
